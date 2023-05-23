@@ -4,6 +4,7 @@ import Dashboard from '@/components/Dashboard';
 import { useState } from 'react';
 import Web3 from 'web3';
 import Navbar from '@/components/Navbar';
+import NotConnected from '@/components/NotConnected';
 
 function Home() {
   const [web3, setWeb3] = useState(null);
@@ -39,7 +40,7 @@ function Home() {
           setAccount(null);
         }}
       />
-      {account ? <h1>Connected</h1> : <h1>Not Connected</h1>}
+      {account ? <h1>Connected</h1> : <NotConnected connectWallet={connectWallet}/>}
     </div>
   );
 }

@@ -3,8 +3,8 @@
 const Navbar = ({ web3, account, connectWallet, disconnectWallet }) => {
 
   return (
-    <nav className="bg-blue-500 p-4 flex justify-between items-center">
-      <div className="text-white font-bold text-xl">Your App Name</div>
+    <nav className="bg-blue-500 p-2 flex justify-between items-center">
+      <div className="text-white font-bold text-xl">Todo</div>
       {account ? (
         <button
           onClick={disconnectWallet}
