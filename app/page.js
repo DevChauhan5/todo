@@ -40,7 +40,7 @@ function Home() {
           setAccount(null);
         }}
       />
-      {account ? <h1>Connected</h1> : <NotConnected connectWallet={connectWallet}/>}
+      {account ? <Dashboard /> : <NotConnected connectWallet={connectWallet}/>}
     </div>
   );
 }
