@@ -1,12 +1,10 @@
 "use client"
 
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import Web3 from 'web3';
-import Dashboard from './dashboard/page';
 
-function Home() {
-  const [web3, setWeb3] = useState(null);
+function ConnectWallet() {
+    const [web3, setWeb3] = useState(null);
   const [account, setAccount] = useState(null);
 
   // Function to connect the wallet
@@ -33,16 +31,18 @@ function Home() {
     setWeb3(null);
     setAccount(null);
   };
-
   return (
     <div>
       {account ? (
-        router.push('/dashboard')
+        <div>
+          <p>Connected Account: {account}</p>
+          <button onClick={disconnectWallet} className='bg-blue-500 rounded-md p-2 m-2 text-white'>Disconnect Wallet</button>
+        </div>
       ) : (
-        router.push('/connectwallet')
+        <button className='bg-blue-500 rounded-md p-2 m-2 text-white' onClick={connectWallet}>Connect Wallet</button>
       )}
     </div>
-  );
+  )
 }
 
-export default Home;
+export default ConnectWallet
