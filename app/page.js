@@ -33,13 +33,13 @@ function Home() {
     setWeb3(null);
     setAccount(null);
   };
-
+  const router = useRouter();
   return (
     <div>
       {account ? (
-        router.push('/dashboard')
+        router.push('/connewallet')
       ) : (
-        router.push('/connectwallet')
+        router.push('/dashboard')
       )}
     </div>
   );
