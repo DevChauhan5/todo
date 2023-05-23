@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
-import { useRouter } from 'next/navigation';
+import Dashboard from '@/components/Dashboard';
 import { useState } from 'react';
 import Web3 from 'web3';
-import Dashboard from './dashboard/page';
+import Navbar from '@/components/Navbar';
 
 function Home() {
   const [web3, setWeb3] = useState(null);
@@ -28,19 +28,18 @@ function Home() {
     }
   };
 
-  // Function to disconnect the wallet
-  const disconnectWallet = () => {
-    setWeb3(null);
-    setAccount(null);
-  };
-  const router = useRouter();
   return (
     <div>
-      {account ? (
-        router.push('/connewallet')
-      ) : (
-        router.push('/dashboard')
-      )}
+      <Navbar
+        web3={web3}
+        account={account}
+        connectWallet={connectWallet}
+        disconnectWallet={() => {
+          setWeb3(null);
+          setAccount(null);
+        }}
+      />
+      {account ? <h1>Connected</h1> : <h1>Not Connected</h1>}
     </div>
   );
 }
